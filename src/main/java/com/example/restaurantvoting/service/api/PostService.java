@@ -5,7 +5,5 @@ import com.example.restaurantvoting.dto.Post;
 import java.util.List;
 
 public interface PostService {
-    public default List<Post> search(){
-        return null;
-    };
+    List<Post> search(String query);
 }

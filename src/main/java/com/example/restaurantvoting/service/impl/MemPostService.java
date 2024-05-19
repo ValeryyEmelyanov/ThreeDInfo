@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MemPostService implements PostService {
@@ -31,8 +32,15 @@ public class MemPostService implements PostService {
     );
 
 
-    @Override
-    public List<Post> search() {
-        return posts;
+    public List<Post> search(String query) {
+        return query != null && !query.isEmpty()?
+                posts.stream()
+                .filter(post -> post
+                        .getTitle()
+                        .toLowerCase()
+                        .matches(".*" + query.toLowerCase() + ".*"))
+                .collect(Collectors.toList())
+                :posts
+                ;
     }
 }

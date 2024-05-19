@@ -5,6 +5,7 @@ import com.example.restaurantvoting.service.impl.MemPostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PostController {
@@ -16,8 +17,8 @@ public class PostController {
     }
 
     @GetMapping("/")
-    public String hello (Model model){
-        model.addAttribute("posts", memPostService.search());
+    public String hello (Model model, @RequestParam(required = false) String query){
+        model.addAttribute("posts", memPostService.search(query));
         return "hello";
     }
 }
