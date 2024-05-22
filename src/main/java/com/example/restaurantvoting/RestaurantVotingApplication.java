@@ -10,5 +10,5 @@ public class RestaurantVotingApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(RestaurantVotingApplication.class, args);
     }
-
 }
+
