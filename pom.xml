@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>restaurant-voting</artifactId>
+    <artifactId>ThreeDInfo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>restaurant-voting</name>
