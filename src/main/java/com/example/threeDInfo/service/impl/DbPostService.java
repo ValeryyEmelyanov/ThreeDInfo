@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Service("dbPostService")
@@ -49,9 +50,9 @@ public class DbPostService implements PostService {
     public List<Post> findAllSortedByDate() {
         return postRepository.findAllByOrderByCreatedDateDesc();
     }
-    public Post savePost(Post post) {
+    public List<Post> savePost(Post post) {
         post.setCreatedDate(LocalDateTime.now()); // Устанавливаем текущее время
-        return postRepository.save(post);
+        return Collections.singletonList(postRepository.save(post));
     }
 
 }

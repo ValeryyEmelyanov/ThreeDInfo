@@ -12,4 +12,5 @@ public interface PostService {
     List<Post> findPostsAfterDate(LocalDate date);
     List<Post> findAllById(List<Long> ids);
     List<Post> findAllSortedByDate();
+    List<Post> savePost(Post post);
 }

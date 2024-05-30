@@ -5,9 +5,9 @@ import com.example.threeDInfo.service.api.PostService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @Controller
 public class PostController {
@@ -38,5 +38,17 @@ public class PostController {
         Post post = postService.findAllByIdIn(id);
         model.addAttribute("post", post);
         return "postDetails";
+    }
+    @GetMapping("/posts/add")
+    public String showAddPostForm(Model model) {
+        model.addAttribute("post", new Post());
+        return "add-post";
+    }
+
+    @PostMapping("/posts/add")
+    public String addPost(@ModelAttribute Post post) {
+        post.setCreatedDate(LocalDateTime.now()); // Устанавливаем текущее время
+        postService.savePost(post);
+        return "redirect:/"; // Перенаправление на главную страницу после добавления поста
     }
 }

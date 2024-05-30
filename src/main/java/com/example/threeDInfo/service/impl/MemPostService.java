@@ -32,7 +32,10 @@ public class MemPostService implements PostService {
 
     @Override
     public Post findAllByIdIn(Long id) {
-        return null;
+        return posts.stream()
+                .filter(post -> post.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
@@ -52,6 +55,11 @@ public class MemPostService implements PostService {
 
     @Override
     public List<Post> findAllSortedByDate() {
+        return null;
+    }
+
+    @Override
+    public List<Post> savePost(Post post) {
         return null;
     }
 }
