@@ -1,14 +1,14 @@
-package com.example.restaurantvoting;
+package com.example.threeDInfo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class RestaurantVotingApplication extends SpringBootServletInitializer {
+public class ThreeDInfoApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestaurantVotingApplication.class, args);
+        SpringApplication.run(ThreeDInfoApplication.class, args);
     }
 }
 

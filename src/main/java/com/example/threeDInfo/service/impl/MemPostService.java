@@ -1,9 +1,10 @@
-package com.example.restaurantvoting.service.impl;
+package com.example.threeDInfo.service.impl;
 
-import com.example.restaurantvoting.dto.Post;
-import com.example.restaurantvoting.service.api.PostService;
+import com.example.threeDInfo.dto.Post;
+import com.example.threeDInfo.service.api.PostService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,5 +28,30 @@ public class MemPostService implements PostService {
                         .contains(query.toLowerCase()))
                         .collect(Collectors.toList()) :
                 posts;
+    }
+
+    @Override
+    public Post findAllByIdIn(Long id) {
+        return null;
+    }
+
+    @Override
+    public List<Post> searchInBody(String query) {
+        return null;
+    }
+
+    @Override
+    public List<Post> findPostsAfterDate(LocalDate date) {
+        return null;
+    }
+
+    @Override
+    public List<Post> findAllById(List<Long> ids) {
+        return null;
+    }
+
+    @Override
+    public List<Post> findAllSortedByDate() {
+        return null;
     }
 }

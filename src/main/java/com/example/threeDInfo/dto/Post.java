@@ -1,10 +1,12 @@
-package com.example.restaurantvoting.dto;
+package com.example.threeDInfo.dto;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * Сущность Post представляет собой пост в базе данных.
@@ -22,4 +24,7 @@ public class Post {
     private String title;
     private String body;
     private String img;
+
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
 }
