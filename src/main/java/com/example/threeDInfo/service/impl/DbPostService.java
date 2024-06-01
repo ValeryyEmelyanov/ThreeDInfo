@@ -55,4 +55,10 @@ public class DbPostService implements PostService {
         return Collections.singletonList(postRepository.save(post));
     }
 
+    @Override
+    public List<Post> deletePost(Long id) {
+        postRepository.deleteById(id);
+        return null;
+    }
+
 }

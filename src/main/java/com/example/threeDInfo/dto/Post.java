@@ -27,4 +27,9 @@ public class Post {
 
     @Column(name = "created_date")
     private LocalDateTime createdDate;
+
+    private String imgUrl;
+//    public void setImgUrl(String imgUrl) {
+//        this.imgUrl = imgUrl;
+//    }
 }

@@ -13,4 +13,5 @@ public interface PostService {
     List<Post> findAllById(List<Long> ids);
     List<Post> findAllSortedByDate();
     List<Post> savePost(Post post);
+    List<Post> deletePost(Long id);
 }
