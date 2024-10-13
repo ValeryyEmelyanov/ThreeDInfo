@@ -13,28 +13,38 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="post")
+@Table(name = "post")
 public class Post {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // лучше использовать IDENTITY
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
 
-    @Lob // для хранения больших текстов
     private String body;
 
-    private String img;
-
-    @Column(name = "created_date", nullable = false, updatable = false)
     private LocalDateTime createdDate;
 
-    @Column(name = "updated_date")
-    private LocalDateTime updatedDate;
-
-    private String imgUrl;
-
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user; // автор поста
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private boolean published;
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
 }
+

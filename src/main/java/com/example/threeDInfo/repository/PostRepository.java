@@ -1,6 +1,7 @@
 package com.example.threeDInfo.repository;
 
 import com.example.threeDInfo.entity.Post;
+import com.example.threeDInfo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,22 +11,20 @@ import java.util.List;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    // Поиск query в заголовке title
     List<Post> findAllByTitleContainingIgnoreCase(String query);
 
+    List<Post> findAllByUser(User user);
 
-    // Поиск post по дате (после определённой даты)
     List<Post> findAllByCreatedDateAfter(LocalDate date);
 
-    // Поиск post по списку id
     List<Post> findAllByIdIn(List<Long> ids);
 
-    // Поиск всех post с сортировкой по дате создания (по убыванию)
     List<Post> findAllByOrderByCreatedDateDesc();
 
-    // Удаление post по id
     void deleteById(Long id);
 
-    // Сохранение поста
-    Post save(Post post);
+    List<Post> findAllByPublishedTrueOrderByCreatedDateDesc();
+
+    List<Post> findAllByUserAndPublishedTrueOrderByCreatedDateDesc(User user); // Изменено
 }
+
