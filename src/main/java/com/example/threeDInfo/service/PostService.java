@@ -1,5 +1,6 @@
 package com.example.threeDInfo.service;
 
+import com.example.threeDInfo.dto.PostDTO;
 import com.example.threeDInfo.entity.Post;
 import com.example.threeDInfo.entity.User;
 import com.example.threeDInfo.repository.PostRepository;
@@ -61,6 +62,5 @@ public class PostService {
         post.setCreatedDate(LocalDateTime.now());
         return postRepository.save(post);
     }
-
 
 }
