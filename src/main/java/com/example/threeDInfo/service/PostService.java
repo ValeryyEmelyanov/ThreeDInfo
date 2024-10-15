@@ -1,6 +1,5 @@
 package com.example.threeDInfo.service;
 
-import com.example.threeDInfo.dto.PostDTO;
 import com.example.threeDInfo.entity.Post;
 import com.example.threeDInfo.entity.User;
 import com.example.threeDInfo.repository.PostRepository;
@@ -46,16 +45,12 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
-    public List<Post> findPostsAfterDate(LocalDate date) {
-        return postRepository.findAllByCreatedDateAfter(date);
+    public List<Post> findPostsAfterDate(LocalDateTime date) {
+        return postRepository.findAllByCreatedDateAfter(LocalDate.from(date));
     }
 
     public List<Post> getPostsByUser(User user) {
         return postRepository.findAllByUser(user);
-    }
-
-    public List<Post> getAllPosts() {
-        return postRepository.findAllByOrderByCreatedDateDesc();
     }
 
     public Post createPost(Post post) {
@@ -63,4 +58,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
+    public List<Post> getAllPosts() {
+        return postRepository.findAll();
+    }
 }

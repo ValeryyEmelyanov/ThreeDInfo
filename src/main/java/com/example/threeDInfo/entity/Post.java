@@ -26,25 +26,15 @@ public class Post {
 
     private LocalDateTime createdDate;
 
+    private boolean published;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    private boolean published;
+
     public boolean isPublished() {
         return published;
-    }
-
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
-
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
     }
 }
 

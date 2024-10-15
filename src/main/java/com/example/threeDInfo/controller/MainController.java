@@ -23,6 +23,6 @@ public class MainController {
     public String hello(Model model) {
         List<Post> posts = postService.getAllPosts();
         model.addAttribute("posts", posts);
-        return "postList";
+        return "startPage";
     }
 }
