@@ -14,7 +14,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> findAllByTitleContainingIgnoreCase(String query);
 
     List<Post> findAllByUser(User user);
-
     List<Post> findAllByCreatedDateAfter(LocalDate date);
 
     List<Post> findAllByIdIn(List<Long> ids);
@@ -25,6 +24,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findAllByPublishedTrueOrderByCreatedDateDesc();
 
-    List<Post> findAllByUserAndPublishedTrueOrderByCreatedDateDesc(User user); // Изменено
+    List<Post> findAllByUserAndPublishedTrueOrderByCreatedDateDesc(User user);
 }
 
