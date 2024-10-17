@@ -1,44 +1,36 @@
 <#macro main>
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="ru">
     <head>
         <meta charset="UTF-8">
         <title>ThreeDInfo</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
             /* Основные стили */
             body {
                 font-family: 'Poppins', sans-serif;
-                background-color: #f0f1f3;
-                color: #4a4a4a;
+                background-color: #f5f5f5;
+                color: #333;
                 margin: 0;
                 padding: 0;
             }
-
-            /* Навигация */
+            /* Шапка */
             nav {
-                background-color: #3b3b3b;
+                background-color: #333;
+                padding: 10px 0;
+                text-align: center;
             }
-            nav .brand-logo {
-                font-weight: 500;
-                font-size: 1.5rem;
-                color: #f0f1f3;
-            }
-            .nav-wrapper .material-icons {
-                color: #f0f1f3;
-            }
-            .nav-wrapper ul li a {
-                color: #bdbdbd;
-            }
-            .nav-wrapper ul li a:hover {
-                color: #f0f1f3;
+            nav h1 {
+                margin: 0;
+                color: #fff;
             }
 
             /* Карточки */
             .card {
-                background-color: #ffffff;
+                background-color: #fff;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 border-radius: 10px;
                 padding: 16px;
@@ -47,44 +39,26 @@
 
             /* Кнопки */
             .btn {
-                background-color: #6c757d;
+                background-color: #4CAF50;
                 color: white;
-                border-radius: 20px;
-                padding: 0 20px;
-            }
-            .btn:hover {
-                background-color: #5a6268;
+                border-radius: 5px;
+                padding: 10px 20px;
+                text-decoration: none;
+                font-weight: bold;
             }
 
-            /* Заголовки и текст */
-            h1, h2, h3, h4, h5, h6 {
-                font-weight: 600;
-                color: #333333;
-                margin: 20px 0 10px 0;
-            }
-            p {
-                line-height: 1.6;
-                color: #4a4a4a;
+            .btn:hover {
+                background-color: #45a049;
             }
         </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-
     <body>
     <nav>
-        <div class="nav-wrapper container">
-            <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>ThreeDInfo</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/search"><i class="material-icons">search</i></a></li>
-                <li><a href="/dashboard"><i class="material-icons">view_module</i></a></li>
-                <li><a href="/refresh"><i class="material-icons">refresh</i></a></li>
-                <li><a href="/more"><i class="material-icons">more_vert</i></a></li>
-            </ul>
-        </div>
+        <h1>ThreeDInfo</h1>
     </nav>
 
     <div class="container">
-        <#nested>
+        <#nested> <!-- Для динамического контента -->
     </div>
 
     <script type="text/javascript" src="/js/materialize.min.js"></script>

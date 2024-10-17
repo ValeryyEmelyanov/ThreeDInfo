@@ -7,6 +7,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 
 
+
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -14,9 +16,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
-                .authorizeRequests()
-                .anyRequest().permitAll();
+                .csrf().disable() // Отключаем CSRF для упрощения
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/", "/posts/**").permitAll() // Разрешить доступ ко всем на стартовую страницу и страницы статей
+                        .anyRequest().authenticated() // Остальные страницы доступны только авторизованным пользователям
+                )
+                .formLogin(form -> form
+                        .loginPage("/login") // URL страницы логина
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .permitAll()
+                );
+
         return http.build();
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
@@ -15,6 +16,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     List<Post> findAllByUser(User user);
     List<Post> findAllByCreatedDateAfter(LocalDate date);
+
+    Optional<Post> findById(Long id);
 
     List<Post> findAllByIdIn(List<Long> ids);
 

@@ -25,6 +25,10 @@ public class PostService {
         return postRepository.findAllByOrderByCreatedDateDesc();
     }
 
+    public Post getPostById(Long id) {
+        return postRepository.findById(id).orElse(null);
+    }
+
     public List<Post> findAllPublished() {
         return postRepository.findAllByPublishedTrueOrderByCreatedDateDesc();
     }
